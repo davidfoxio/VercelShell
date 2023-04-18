@@ -7,66 +7,58 @@
       "use": "@nuxtjs/vercel-builder",
       "config": {
         "serverFiles": [
-          "api/**"
+          "package.json"
         ]
       }
     }
   ],
-  "headers": [
-    {
-    "source": "/_nuxt/.+",
-      "headers": {
-        "cache-control": "s-maxage=31536000"
-      }
-    }
-  ],
-  "redirects": [
-
-  ],
   "routes": [
+    { "src": "/_nuxt/.+", "headers": { "Cache-Control": "max-age=31557600" } },
     {
-      "src": "/_nuxt/.+",
+      "src": "/sw.js",
+      "dest": "/_nuxt/static/sw.js",
       "headers": {
-        "cache-control": "s-maxage=31536000"
+        "cache-control": "public, max-age=43200, immutable",
+        "Service-Worker-Allowed": "/"
       }
     },
-    { "source": "/dazn-2018(\/*)$", "destination": "/work" },
-    { "source": "/creative(\/*)$", "destination": "/contact" },
-    { "source": "/dancing-on-ice(\/*)$", "destination": "/work" },
-    { "source": "/dazn(\/*)$", "destination": "/work/dazn-global-rebranding" },
-    { "source": "/ffrees-the-unbaking-revolution(\/*)$", "destination": "/work/ffrees" },
-    { "source": "/got-to-dance(\/*)$", "destination": "/work" },
-    { "source": "/heart-bingo(\/*)$", "destination": "/work/heart-bingo" },
-    { "source": "/heart-brand-ad(\/*)$", "destination": "/work/heart-brand-campaign" },
-    { "source": "/heart-happy-summer-days(\/*)$", "destination": "/work/hearts-happy-summer-days" },
-    { "source": "/heart-sponsors-friends(\/*)$", "destination": "/work/heart-sponsors-friends" },
-    { "source": "/itv-news-rebrand-film(\/*)$", "destination": "/work/itv-news" },
-    { "source": "/itv-player-on-android(\/*)$", "destination": "/work/itv-idents" },
-    { "source": "/itv-player-on-second-screen(\/*)$", "destination": "/work/itv-idents" },
-    { "source": "/itv-rebrand-idents(\/*)$", "destination": "/work/itv-idents" },
-    { "source": "/jobs(\/*)$", "destination": "/contact" },
-    { "source": "/junior-motion-graphic-designer(\/*)$", "destination": "/contact" },
-    { "source": "/keep-it-in-ground(\/*)$", "destination": "/work/the-guardian" },
-    { "source": "/lbc-campaign-2018(\/*)$", "destination": "/work/lbc-campaigns" },
-    { "source": "/motion-graphic-designer(\/*)$", "destination": "/contact" },
-    { "source": "/new-gallery(\/*)$", "destination": "/work/itv-idents" },
-    { "source": "/new-gallery-1(\/*)$", "destination": "/work/itv-idents" },
-    { "source": "/nfl-gamepass-perform(\/*)$", "destination": "/work/nfl-gamepass" },
-    { "source": "/samsung-the-next-galaxy(\/*)$", "destination": "/work/samsung-the-next-galaxy" },
-    { "source": "/singing-in-the-rainforest(\/*)$", "destination": "/work" },
-    { "source": "/technical-assistant(\/*)$", "destination": "/contact" },
-    { "source": "/times-new-roman(\/*)$", "destination": "/work/the-times" },
-    { "source": "/towie(\/*)$", "destination": "/work/towie" },
-    { "source": "/nfl-game-pass-2018(\/*)$", "destination": "/work/nfl-gamepass" },
-    { "source": "/heart-brand-campaign-2018-global-roadio(\/*)$", "destination": "/work/heart-brand-campaign" },
-    { "source": "/lbc-on-tv-global-radio(\/*)$", "destination": "/work/lbc-campaigns" },
-    { "source": "/lbc-uselection2016(\/*)$", "destination": "/work/lbc-campaigns" },
-    { "source": "/dazn-2018(\/*)$", "destination": "/work/dazn-global-rebranding" },
-    { "source": "/dazn-mvm(\/*)$", "destination": "/work/dazn-global-rebranding" },
-    { "source": "/welcome(\/*)$", "destination": "/" },
+    { "src": "/dazn-2018(\/*)$", "dest": "/work" },
+    { "src": "/creative(\/*)$", "dest": "/contact" },
+    { "src": "/dancing-on-ice(\/*)$", "dest": "/work" },
+    { "src": "/dazn(\/*)$", "dest": "/work/dazn-global-rebranding" },
+    { "src": "/ffrees-the-unbaking-revolution(\/*)$", "dest": "/work/ffrees" },
+    { "src": "/got-to-dance(\/*)$", "dest": "/work" },
+    { "src": "/heart-bingo(\/*)$", "dest": "/work/heart-bingo" },
+    { "src": "/heart-brand-ad(\/*)$", "dest": "/work/heart-brand-campaign" },
+    { "src": "/heart-happy-summer-days(\/*)$", "dest": "/work/hearts-happy-summer-days" },
+    { "src": "/heart-sponsors-friends(\/*)$", "dest": "/work/heart-sponsors-friends" },
+    { "src": "/itv-news-rebrand-film(\/*)$", "dest": "/work/itv-news" },
+    { "src": "/itv-player-on-android(\/*)$", "dest": "/work/itv-idents" },
+    { "src": "/itv-player-on-second-screen(\/*)$", "dest": "/work/itv-idents" },
+    { "src": "/itv-rebrand-idents(\/*)$", "dest": "/work/itv-idents" },
+    { "src": "/jobs(\/*)$", "dest": "/contact" },
+    { "src": "/junior-motion-graphic-designer(\/*)$", "dest": "/contact" },
+    { "src": "/keep-it-in-ground(\/*)$", "dest": "/work/the-guardian" },
+    { "src": "/lbc-campaign-2018(\/*)$", "dest": "/work/lbc-campaigns" },
+    { "src": "/motion-graphic-designer(\/*)$", "dest": "/contact" },
+    { "src": "/new-gallery(\/*)$", "dest": "/work/itv-idents" },
+    { "src": "/new-gallery-1(\/*)$", "dest": "/work/itv-idents" },
+    { "src": "/nfl-gamepass-perform(\/*)$", "dest": "/work/nfl-gamepass" },
+    { "src": "/samsung-the-next-galaxy(\/*)$", "dest": "/work/samsung-the-next-galaxy" },
+    { "src": "/singing-in-the-rainforest(\/*)$", "dest": "/work" },
+    { "src": "/technical-assistant(\/*)$", "dest": "/contact" },
+    { "src": "/times-new-roman(\/*)$", "dest": "/work/the-times" },
+    { "src": "/towie(\/*)$", "dest": "/work/towie" },
+    { "src": "/nfl-game-pass-2018(\/*)$", "dest": "/work/nfl-gamepass" },
+    { "src": "/heart-brand-campaign-2018-global-roadio(\/*)$", "dest": "/work/heart-brand-campaign" },
+    { "src": "/lbc-on-tv-global-radio(\/*)$", "dest": "/work/lbc-campaigns" },
+    { "src": "/lbc-uselection2016(\/*)$", "dest": "/work/lbc-campaigns" },
+    { "src": "/dazn-2018(\/*)$", "dest": "/work/dazn-global-rebranding" },
+    { "src": "/dazn-mvm(\/*)$", "dest": "/work/dazn-global-rebranding" },
+    { "src": "/welcome(\/*)$", "dest": "/" },
     {
-      "source": "/(.*)",
-      "destination": "/"
+      "src": "/(.*)",
+      "dest": "/"
     }
   ]
 }
