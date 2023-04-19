@@ -230,6 +230,9 @@ module.exports = {
     }
   },
   build: {
+    extend(config) {
+      config.resolve.alias['node-fetch-native'] = require.resolve('node-fetch')
+    },
     extractCSS: true,
     postcss: {
       plugins: {
